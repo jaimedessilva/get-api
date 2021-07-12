@@ -19,7 +19,7 @@ class TokenApi {
     moviePopularUrl(url, numPage) {
         numPage === undefined ? numPage = 1 : numPage
         let token = '?api_key=892b6a5ffce82f15f4c01016ec167d24'
-        return `${url}upcoming/${token}&page=${numPage}`
+        return `${url}popular/${token}&page=${numPage}`
     }
     redTub(){
     return this.url = `https://api.redtube.com/?data=redtube.Videos.searchVideos&output=json&search=hard&tags[]=Teen&thumbsize=medium`

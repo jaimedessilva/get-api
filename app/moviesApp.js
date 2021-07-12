@@ -48,7 +48,7 @@ const getMoviePopular = () => {
     let op = endpoint.options()
 
     obj = new MovieObj()
-    console.log(url, 2)
+    //console.log(url, 2)
 
 
     fetch(url)
