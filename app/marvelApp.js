@@ -1,7 +1,7 @@
 /**
  * Projeto Get API
  * Author: Jaime Dev
- * Repo: https://github.com/jaimedessilva
+ * Repo: https://github.com/jaimedessilva/get-api
  */
 
 const getApi = (() => {
