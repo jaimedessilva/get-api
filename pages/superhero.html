@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,200&display=swap');
+        @keyframes fade {
+            from {
+                opacity: 0;
+            } to {
+                opacity: 1;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            
+            /* background-image: url('../img/hq_back.jpg'); */
+            /*  background-image: url('../img/hq_back.jpg');*/
+            background-image: url('../img/spartan-3696073_1920.jpg');
+            background-attachment: fixed;
+            background-color: #000000;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        
+        .header-movies {
+            position: fixed;
+            width: 100%;
+            background-color: black;
+            opacity: 0.7;
+            z-index: 9;
+        }
+        
+        .header-movies__title {
+            color: red;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            text-shadow: 2px 2px #000000;
+            margin: 10px;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 100px;
+            opacity: 1.0;
+        }
+        
+        main {
+            /* background-image: url('../img/hq_back.jpg'); */
+            /* border: 1px solid #4976d0; */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1
+        }
+        
+        .busca {
+            margin: 10px auto;
+            margin-top: 130px;
+            /* border: 1px solid red; */
+            width: 70%;
+            text-align: center;
+        }
+        
+        .qtd {
+            margin: 5px;
+            width: 15%;
+            height: 40px;
+            text-align: center;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        .busca input {
+            width: 60%;
+            height: 40px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            text-align: center;   
+        }/* 
+        .busca select {
+            width: 15%;
+            height: 40px;
+            text-align: center;
+            border-radius: 20px;
+            cursor: progress;
+        } */
+        
+        .busca input:focus {
+            background-color: white;
+            /*  border: 1px solid red; */
+            outline: #313332;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .busca input:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        
+        
+        .busca button {
+            width: 10%;
+            border-radius: 15px;
+            border: 1px solid white;
+            height: 40px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .busca .bt {
+            background-color: #4976d0;
+            border: 1px solid #4976d0;
+        }
+        
+        .gallery {
+            /* border: 1px solid red; */
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            background-color: transparent;
+        }
+        
+        .gallery ul {
+            background-color: red;
+        }
+        
+        .gallery__card {
+            display: flex;
+            background: black;
+            border: 2px solid black;
+            box-shadow: 5px 5px 5px 1px rgba(64, 64, 64, 0.66);
+            width: 150px;
+            margin: 5px;
+            height: 100%;
+            min-height: 200px;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-content: center;
+            border-radius: 20px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            text-align: center;
+            position: relative;
+            transition: all .2s ease-in-out;
+            overflow: hidden;
+            top: 0;
+        }
+        
+        .gallery__card:hover {
+            border: 2px solid red;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+            /* top: -5px; */
+        }
+        
+        .gallery__thumb {
+            width: 100%;
+        }
+        
+        .gallery__title {
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: capitalize;
+            position: absolute;
+            color: aliceblue;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            bottom: 7px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .content-popup {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            background-color: #4976d0;
+            background: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            
+        }
+        .popup {
+            width: 70%;
+            border: 1px solid;
+            position: relative;
+            background-color: antiquewhite;
+            border-radius: 30px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            top: 70px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 20px;
+            /* display: none; */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+        .close_button {
+            position: absolute;
+            top: -30px;
+            right: 40%;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: 3px solid antiquewhite;
+            background-color: antiquewhite;
+            font-size: 3.0em;
+            color: red;
+            font-weight: bolder;
+            cursor: pointer;
+            box-shadow: 0 4px 4px 0 rgba(63, 46, 46, 0.3)
+        }
+        .close_button:hover {
+            border: 4px solid red;
+        }
+        
+        .move {
+            top: 600px;
+        }
+        
+        .content {
+            background-color: white;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: justify;
+            min-height: 350px;
+            border-radius: 30px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+        .content a {
+            font-size: 40px;
+            text-decoration: none;
+            color: red;
+            font-weight: 800;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            cursor: pointer;
+
+        }
+        h3 { 
+            padding-top: 100px;
+            padding-bottom: 100px;
+            color: white;
+            text-align: center;
+        }
+        a {color: white; text-decoration: none;}
+        a:hover {color: red;}
+        
+        @media only screen and (max-width: 767px) {
+            .busca {
+            width: 100%;
+            /* border: 1px solid red; */
+            }
+            
+            .busca button {
+                display: none;
+            }
+            .busca input {
+                width: 70%;
+            }
+            .busca .qtd {
+                width: 20%;
+                margin: 2px;
+            }
+            body {
+                background-attachment: fixed;
+            }
+            main {
+                /* background-image: url('../img/hq_back.jpg'); */
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: 100%;
+                width: 100%;
+            }
+            img {
+                width: 100%;
+            }
+            .popup {
+                width: 80%;
+                }
+        }
+    </style>
+    <title>Super Hero</title>
+</head>
+
+<body>
+    <main>
+        <div class="header-movies">
+            <h1 class="header-movies__title">
+                <a href="../index.html"><img src="../img/ssj-dev.png" class="logo"></a><br />S.Hero
+            </h1>
+        </div>
+        <div class="content-popup">
+        
+            <div class="popup">
+            <button type="fechar" class="close_button">X</button>
+                <div class="content">
+                    <!-- <h1 style="float: right" id="close"><a>X</a></h1> -->
+                    <h1>Personagem</h1>
+                    <div class="content__detail">
+                        <!--Details-->
+                    </div>
+                </div>
+        </div>
+        
+        </div>
+
+        <div class="busca">
+            <!-- <input type="number" class="qtd" placeholder="Quant" min="1" max="200"> -->
+            
+            <select class="qtd">
+                <option value="10">Default</option>
+                <option value="10">10</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </selectn>
+            <input type="text" class="inputsearch" placeholder="Digite nome em inglês" />
+            <!-- <button>Search</button> -->
+            <button onclick="location.reload()" class="bt">Refresh</button>
+        </div>
+        <ul class="gallery">
+            <!-- <li class="gallery__card"> -->
+                <!--card-->
+                <!--thumbnail-->
+                <!--Name-->
+                <!-- <a class="gallery__title">Personagem</a> -->
+            </li>
+        </ul>
+        <h3><a href="../index.html">Voltar</a></h3>
+    </main>
+    
+</body>
+<script src="../app/model/Obj.js"></script>
+<script src="../app/model/TokenApi.js"></script>
+<script src="../app/superHeroApp.js"></script>
+<script src="../app/superApp.js"></script>
+
+</html>
