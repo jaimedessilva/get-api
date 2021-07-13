@@ -15,7 +15,7 @@ const getLinks = () => {
     listLinks.push({url: "./pages/superhero.html", title: "S.Hero", img: "../img/superhero.jpg"})
     listLinks.push({url: "./pages/marvel.html",title: "Marvel Comics Herois", img: "../img/marvelcomics.jpg"})
     listLinks.push({url: "./pages/pokemon.html",title: "Pokemon", img: "../img/poke_api.jpg"})
-    listLinks.push({url: "./pages/movies.html",title: "Filmes Api", img: "../img/ssj_filmes.png"})
+    listLinks.push({url: "https://open-movie.netlify.app/",title: "Filmes Api", img: "../img/ssj_filmes.png"})
     /* listLinks.push({url: "https://jaimedessilva.github.io/",title: "Portifolio", img: "../img/portifolio.jpg"}) */
     
     return listLinks
@@ -39,5 +39,4 @@ const render = (() => {
             </div>`
     }
     cards.innerHTML = html
-  
 })()

@@ -44,12 +44,11 @@ const getMovieId = (() => {
 const getMoviePopular = () => {
 
     let endpoint = new TokenApi()
-    let url = endpoint.moviePopularUrl(`https://api.themoviedb.org/3/movie/`)
+    let url = endpoint.moviePopularUrl(`https://api.themoviedb.org/1/movie/`)
     let op = endpoint.options()
 
     obj = new MovieObj()
     //console.log(url, 2)
-
 
     fetch(url)
         .then(response => {
