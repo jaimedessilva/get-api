@@ -4,7 +4,7 @@
  * Repo: https://github.com/jaimedessilva/get-api
  */
  
-const portifolio = 'https://jaimedessilva.github.io' 
+const portfolio = 'https://jaimedessilva.github.io' 
 let cards = document.querySelector('.cards')
 let listLinks = []
 let html = ''
@@ -34,7 +34,7 @@ const render = (() => {
                     </div>
                     <h3>${link.title}</h3>
                   <p><a href="${link.url}">Acessar</p>
-                  <p><a href="${portifolio}">Portifolio</a></p>
+                  <p><a href="${portfolio}">Portfolio</a></p>
                 </div>
             </div>`
     }
